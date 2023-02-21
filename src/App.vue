@@ -1,53 +1,6 @@
 <template>
-    <div>
-        <p>{{ maString }}</p>
-        <br>
-        <button @click="generateRandomTruc">TEST OUI TEST</button>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div id="bookListApp" class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-            <div class="card p-4">
-                <div class="image d-flex flex-column justify-content-center align-items-center">
-
-                    <img :src="user.face" height="200" width="140">
-
-                    <span class="name mt-3"></span>
-                    {{ user.name }}
-                    <input type="text" v-model="user.name" class="texte-center from-control">
-
-                    <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                        <span>{{ user.age }} ans</span>
-                    </div>
-                    <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                        <span>age + 10 :
-                            <span class="follow">{{ agePlusTen }} ans</span>
-                        </span>
-                    </div>
-                    <div class="px-2 rounded mt-4 date">
-                        NB Fétiche : {{ favoriteNumber }}
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="ball" :style="{ top: ballPosition + 'px' }"></div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-danger" @click="leNombre--">-</button>
-        <h3 class="mx-3">le nombre : {{leNombre}}</h3>
-        <button type="button" class="btn btn-success" @click="leNombre++">+</button>
-      </div>
     
+        
 </template>
   
 <script>
@@ -64,18 +17,10 @@ export default {
         };
     },
     computed: {
-        agePlusTen() {
-            return this.user.age + 10;
-        },
-        favoriteNumber() {
-            return Math.floor(Math.random() * 100) + 1;
-        }
+        
     },
     methods: {
-        generateRandomTruc() {
-            const randomNumber = Math.random();
-            this.maString = randomNumber > 0.5 ? "Bidule" : "Truc";
-        },
+        
     }
 };
 </script>
