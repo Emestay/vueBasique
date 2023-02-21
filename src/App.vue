@@ -18,8 +18,7 @@ export default {
     methods: {
         addToMysteryNumber(a) {
             this.mysteryNumber += a;
-        },
-        
+        },   
     },
     watch: {
         mysteryNumber(oui) {
@@ -31,17 +30,12 @@ export default {
             } else {
                 this.message = "Essaie encore";
             }
-        },
-        
-        
+        }, 
     },
     timer(){
         setTimeout(() => {
             this.mysteryNumber = 0;
         }, 5000);
     },
-    
-}
-
-    ;
+};
 </script>
