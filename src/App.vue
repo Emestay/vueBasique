@@ -5,8 +5,8 @@
         <div>
           <h2>{{ player1.name }}</h2>
           <p>{{ player1.hp }} / {{ player1.maxHp }}</p>
-          <button @click="player1Attack">Attack</button>
-          <button @click="player1Heal" :disabled="player1.healUsed">Heal</button>
+          <button @click="player1Attack">Attaqueeee</button>
+          <button @click="player1Heal" :disabled="player1.healUsed">Soin</button>
         </div>
         <div>
           <h2>{{ player2.name }}</h2>
@@ -14,7 +14,7 @@
         </div>
         <p v-if="turnLog.length > 0">{{ turnLog[turnLog.length - 1] }}</p>
       </div>
-      <p v-else>{{ winner.name }} wins!</p>
+      <p v-else>{{ winner.name }}GG T'AS GAGNé FDP!</p>
     </div>
   </template>
   
@@ -23,14 +23,14 @@
     data() {
       return {
         player1: {
-          name: "You",
+          name: "Floflo",
           hp: 100,
           maxHp: 100,
           attack: 10,
           healUsed: false
         },
         player2: {
-          name: "Computer",
+          name: "Manuel Valls",
           hp: 100,
           maxHp: 100,
           attack: 10
@@ -43,7 +43,7 @@
       player1Attack() {
         const damage = Math.floor(Math.random() * this.player1.attack) + 1;
         this.player2.hp -= damage;
-        this.turnLog.push(`You dealt ${damage} damage to the Computer`);
+        this.turnLog.push(`Tu as fait ${damage} de dommage a La Valls`);
         if (this.player2.hp <= 0) {
           this.winner = this.player1;
           return;
@@ -56,7 +56,7 @@
       player2Turn() {
         const damage = Math.floor(Math.random() * this.player2.attack) + 1;
         this.player1.hp -= damage;
-        this.turnLog.push(`Computer dealt ${damage} damage to You`);
+        this.turnLog.push(`Valls ta effleuré avec ses bras moux de  ${damage} de dommage`);
         if (this.player1.hp <= 0) {
           this.winner = this.player2;
           return;
@@ -72,7 +72,7 @@
           this.player1.hp = this.player1.maxHp;
         }
         this.player1.healUsed = true;
-        this.turnLog.push(`You healed for ${heal} HP`);
+        this.turnLog.push(`Tu te soignes de ${heal} HP, gros faible va`);
       }
     }
   }
