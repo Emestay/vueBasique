@@ -1,26 +1,41 @@
 <template>
-    
-        
+    <h1 class="text-center">TP EventBinding</h1>
+    <div id="monApp" class="container mt-4 mb-4 p-3">
+        <div class="mb-3">
+            <input type="text" class="form-control" @keyup="updateText1" />
+        </div>
+        <div class="mb-3">
+            <p>{{ text1 }}</p>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" @keyup.esc="updateText2" />
+        </div>
+        <div class="mb-3">
+            <p>{{ text2 }}</p>
+        </div>
+        <button @click="alert" class="btn btn-primary mb-3">Alerte</button>
+    </div>
 </template>
   
 <script>
 export default {
     data() {
         return {
-            maString: '',
-            leNombre: 0,
-            user: {
-                name: 'Mario',
-                age: 45,
-                face: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-s-www.estrepublicain.fr%2Fimages%2F1CAE876A-7D3B-4CCF-BD48-E60DB51B4967%2FNW_raw%2Fle-ministre-de-l-interieur-manuel-valls-photo-alexandre-marchi-1484668204.jpg&f=1&nofb=1&ipt=9359a6bb7a3baf1ba5e7f7f9206ece05ec76bf935a1f7b01e4cbfcedca1fb5c8&ipo=images'
-            }
+            text1: '',
+            text2: '',
+
         };
     },
-    computed: {
-        
-    },
     methods: {
-        
+        updateText1(e) {
+            this.text1 = e.target.value;
+        },
+        updateText2(e) {
+            this.text2 = e.target.value;
+        },
+        alert() {
+          alert("PATES EN CROUTTES");
+        }
     }
 };
 </script>
