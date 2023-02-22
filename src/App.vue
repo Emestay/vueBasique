@@ -14,7 +14,7 @@
         </div>
         <p v-if="turnLog.length > 0">{{ turnLog[turnLog.length - 1] }}</p>
       </div>
-      <p v-else>{{ winner.name }}GG T'AS GAGNé FDP!</p>
+      <p v-else>{{ winner.name }} GG T'AS GAGNé FDP!</p>
     </div>
   </template>
   
@@ -56,7 +56,7 @@
       player2Turn() {
         const damage = Math.floor(Math.random() * this.player2.attack) + 1;
         this.player1.hp -= damage;
-        this.turnLog.push(`Valls ta effleuré avec ses bras moux de  ${damage} de dommage`);
+        this.turnLog.push(`Valls ta effleuré avec ses bras moux de ${damage} de dommage`);
         if (this.player1.hp <= 0) {
           this.winner = this.player2;
           return;
