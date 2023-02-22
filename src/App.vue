@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     ajouterFilm() {
-      if (this.nomFilm.trim() === '') {
+      if (this.nomFilm === '') {
         this.messageErreur = 'Le champ du film ne peut pas être vide.';
         return;
       }
