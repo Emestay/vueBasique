@@ -7,14 +7,19 @@
     <h2 v-if="mesFilms.length > 0">Ma WatchList :</h2>
     <ul v-if="mesFilms.length > 0" class="list-group">
       <li v-for="(film, index) in mesFilms" :key="index" class="list-group-item">
-        {{ film }}
+        {{ film.nom }}
+        <div>
+          Note : {{ film.note }}/5
+          <span v-for="n in 5" :class="{ 'text-warning': n <= film.note }" @click="noterFilm(index, n)">
+            <i class="fas fa-star"></i>
+          </span>
+        </div>
         <button @click="supprimerFilm(index)" class="btn btn-danger">Supprimer</button>
       </li>
     </ul>
     <p v-else class="text-danger">Pas encore de films dans votre liste.</p>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -30,12 +35,15 @@ export default {
         this.messageErreur = 'Le champ du film ne peut pas être vide.';
         return;
       }
-      this.mesFilms.push(this.nomFilm);
+      this.mesFilms.push({ nom: this.nomFilm, note: 0 });
       this.nomFilm = '';
       this.messageErreur = '';
     },
     supprimerFilm(index) {
       this.mesFilms.splice(index, 1);
+    },
+    noterFilm(index, note) {
+      this.mesFilms[index].note = note;
     }
   }
 }
