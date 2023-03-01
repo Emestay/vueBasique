@@ -1,5 +1,5 @@
 <template>
-    <div @keydown="handleKeyDown" tabindex="0">
+    <div>
       <GameBoard />
       <Snake :initialLength="3" />
       <Food />
@@ -7,9 +7,9 @@
   </template>
   
   <script>
-  import GameBoard from '../components/GameBoard.vue'
-  import Snake from '../components/Snake.vue'
-  import Food from '../components/Food.vue'
+  import GameBoard from './GameBoard.vue'
+  import Snake from './Snake.vue'
+  import Food from './Food.vue'
   
   export default {
     name: 'GameLogic',
@@ -33,22 +33,6 @@
       setInterval(this.moveSnake, 200)
     },
     methods: {
-      handleKeyDown(event) {
-        switch (event.key) {
-          case 'ArrowUp':
-            this.direction = 'up'
-            break
-          case 'ArrowDown':
-            this.direction = 'down'
-            break
-          case 'ArrowLeft':
-            this.direction = 'left'
-            break
-          case 'ArrowRight':
-            this.direction = 'right'
-            break
-        }
-      },
       moveSnake() {
         const head = this.snake[this.snake.length - 1]
         const tail = this.snake.shift()
@@ -96,6 +80,6 @@
   </script>
   
   <style>
- 
+  
   </style>
   

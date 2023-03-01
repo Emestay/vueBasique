@@ -1,9 +1,7 @@
-<script setup>
+<template>
+  
+</template>
+
+<script>
 
 </script>
-
-<template>
-  <main>
-    
-  </main>
-</template>
