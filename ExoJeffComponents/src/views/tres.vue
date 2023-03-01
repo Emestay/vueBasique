@@ -8,7 +8,7 @@
   
   <script>
   import GameBoard from '../components/GameBoard.vue'
-  import Snake from '../components/Snake.vue'
+ 
   import Food from '../components/Food.vue'
   
   export default {
