@@ -26,7 +26,7 @@ export default {
       lesAmis: [
         { id: 1, name: 'John Doe', phone: '555-555-1234', email: 'john.doe@example.com' },
         { id: 2, name: 'Jane Doe', phone: '555-555-5678', email: 'jane.doe@example.com' },
-        { id: 3, name: 'Jojo Dodo', phone: '555-555-5678', email: 'jane.doe@example.com' }
+        { id: 3, name: 'Jojo Dodo', phone: '555-555-5621', email: 'jojo.dodo@example.com' }
       ]
     }
   },
