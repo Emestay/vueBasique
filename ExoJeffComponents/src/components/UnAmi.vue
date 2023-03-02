@@ -18,41 +18,51 @@
 
 <script>
 export default {
-  props:{
-    id: {
+  props: {
+    leNom: {
       type: String,
       required: true
     },
-    leNom:{
-      type:String,
-      required:true
+    lePhone: {
+      type: String,
+      required: true
     },
-    lePhone:{
-      type:String,
-      required:true
+    leMail: {
+      type: String,
+      required: true
     },
-    leMail:{
-      type:String,
-      required:true
+    premium: {
+      type: Boolean,
+      required: false,
+      default: false
     },
-    premium:{
-      type:Boolean,
-      required:false,
-      default:false
+    id: {
+      type: String,
+      required: true
     }
   },
-  data(){
-    return{
-      detailsVisibles:false,
+  emits: {
+    'mon-event-premium': (id) => {
+      if (id) {
+        return true;
+      } else {
+        console.warn('Attention: l\'id de l\'ami n\'est pas défini.');
+        return false;
+      }
     }
   },
-  methods:{
-    afficherDetails(){
+  data() {
+    return {
+      detailsVisibles: false
+    };
+  },
+  methods: {
+    afficherDetails() {
       this.detailsVisibles = !this.detailsVisibles;
     },
-    afficherPremium(){
+    afficherPremium() {
       this.$emit('mon-event-premium', this.id);
     }
-  },
-}
+  }
+};
 </script>
