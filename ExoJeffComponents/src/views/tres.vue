@@ -13,11 +13,14 @@
         @mon-event-premium="afficherStatusPremium($event)"
         class="border-b-2 pb-2 mb-2"
       ></UnAmi>
+      <NewAmi @add-ami="ajouterAmi"> </NewAmi>
     </ul>
   </div>
 </template>
 <script>
 import UnAmi from "../components/UnAmi.vue";
+import NewAmi from "../components/newAmi.vue";
+
 export default{
     data() {
         return {
@@ -53,6 +56,16 @@ export default{
             unAmiIdentified.premium = !unAmiIdentified.premium;
         }
     },
-    components: { UnAmi }
+    ajouterAmi(name, phone, email) {
+      const newAmiContact = {
+        id: new Date().toISOString(),
+        name: name,
+        phone: phone,
+        email: email,
+        premium: false,
+      };
+      this.lesAmis.push(newAmiContact);
+    },
+    components: { UnAmi, NewAmi }
 }
 </script>
