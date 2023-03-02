@@ -1,101 +1,58 @@
 <template>
-    <div @keydown="handleKeyDown" tabindex="0">
-      <GameBoard />
-      <Snake :initialLength="3" />
-      <Food />
-    </div>
-  </template>
-  
-  <script>
-  import GameBoard from '../components/GameBoard.vue'
- 
-  import Food from '../components/Food.vue'
-  
-  export default {
-    name: 'GameLogic',
-    components: {
-      GameBoard,
-      Snake,
-      Food
-    },
+  <div class="container mx-auto px-4 py-6">
+    <h1 class="text-center text-4xl font-bold mb-4">Les Amis</h1>
+    <ul class="list-group">
+      <UnAmi 
+        v-for="unAmi in lesAmis" 
+        :key="unAmi.id" 
+        :id="unAmi.id"
+        :leNom="unAmi.name" 
+        :lePhone="unAmi.phone"
+        :leMail="unAmi.email"
+        :premium="unAmi.premium"
+        @mon-event-premium="afficherStatusPremium($event)"
+        class="border-b-2 pb-2 mb-2"
+      ></UnAmi>
+    </ul>
+  </div>
+</template>
+<script>
+import UnAmi from "../components/UnAmi.vue";
+export default{
     data() {
-      return {
-        direction: 'right',
-        snake: [],
-        food: null,
-        score: 0
-      }
-    },
-    mounted() {
-      this.snake = Array.from({ length: 3 }, (_, i) => ({ x: i, y: 0 }))
-      this.food = { x: 5, y: 5 }
-  
-      setInterval(this.moveSnake, 200)
+        return {
+            lesAmis: [
+                {
+                    id: "lasticot",
+                    name: "COCO L ASTICOT",
+                    phone: "01234 5678 991",
+                    email: "coco@lasticot.com",
+                    premium: true
+                },
+                {
+                    id: "janine",
+                    name: "Janine DeLavega",
+                    phone: "09876 543 221",
+                    email: "janine@delavega.com",
+                    premium: false
+                },
+                {
+                    id: "kimonoSurUnFrigo",
+                    name: "Steven Seagal",
+                    phone: "+338765477",
+                    email: "steven@seagal.com",
+                    premium: false
+                },
+            ],
+        };
     },
     methods: {
-      handleKeyDown(event) {
-        switch (event.key) {
-          case 'ArrowUp':
-            this.direction = 'up'
-            break
-          case 'ArrowDown':
-            this.direction = 'down'
-            break
-          case 'ArrowLeft':
-            this.direction = 'left'
-            break
-          case 'ArrowRight':
-            this.direction = 'right'
-            break
+        afficherStatusPremium(leldDansUnAmi) {
+            const unAmiIdentified = this.lesAmis.find(unAmi => unAmi.id === leldDansUnAmi);
+            console.log(unAmiIdentified.name);
+            unAmiIdentified.premium = !unAmiIdentified.premium;
         }
-      },
-      moveSnake() {
-        const head = this.snake[this.snake.length - 1]
-        const tail = this.snake.shift()
-  
-        switch (this.direction) {
-          case 'up':
-            this.snake.push({ x: head.x, y: head.y - 1 })
-            break
-          case 'down':
-            this.snake.push({ x: head.x, y: head.y + 1 })
-            break
-          case 'left':
-            this.snake.push({ x: head.x - 1, y: head.y })
-            break
-          case 'right':
-            this.snake.push({ x: head.x + 1, y: head.y })
-            break
-        }
-  
-        if (this.isCollidingWithFood(head)) {
-          this.snake.unshift(tail)
-          this.score += 10
-          this.generateFood()
-        }
-  
-        if (this.isCollidingWithWall(head) || this.isCollidingWithSelf(head)) {
-          // Game over
-        }
-      },
-      generateFood() {
-        // Générer une nouvelle position aléatoire pour la nourriture
-        this.food = { x: Math.floor(Math.random() * 10), y: Math.floor(Math.random() * 10) }
-      },
-      isCollidingWithFood(head) {
-        return head.x === this.food.x && head.y === this.food.y
-      },
-      isCollidingWithWall(head) {
-        return head.x < 0 || head.x >= 10 || head.y < 0 || head.y >= 10
-      },
-      isCollidingWithSelf(head) {
-        return this.snake.some(segment => segment !== head && segment.x === head.x && segment.y === head.y)
-      }
-    }
-  }
-  </script>
-  
-  <style>
- 
-  </style>
-  
+    },
+    components: { UnAmi }
+}
+</script>

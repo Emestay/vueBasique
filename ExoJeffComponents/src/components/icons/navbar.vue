@@ -9,7 +9,7 @@
             <div class="hidden sm:block sm:ml-6">
               <div class="flex space-x-4">
                 <router-link to="/uno" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Page Uno</router-link>
-                <router-link to="/deux" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">La dos</router-link>
+                <router-link to="/dos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">La dos</router-link>
                 <router-link to="/tres" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">La tres</router-link>
               </div>
             </div>

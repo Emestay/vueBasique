@@ -16,7 +16,7 @@ const router = createRouter({
     },
     {
       path: '/dos',
-      name: 'Deux',
+      name: 'Dos',
       component: () => import('../views/dos.vue')
     },
     {
