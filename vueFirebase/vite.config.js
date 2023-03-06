@@ -9,9 +9,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        format: 'cjs',
-      },
-    },
+        format: 'es'
+      }
+    }
   },
   resolve: {
     alias: {
